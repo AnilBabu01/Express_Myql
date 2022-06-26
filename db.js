@@ -10,12 +10,10 @@ const connectoMysql = () => {
   connection.connect(function (err) {
     if (err) throw err;
     console.log("Myqsl successfully connected ");
-    var sql = "INSERT INTO customers (name, address) VALUES ('Company abc', 'Highway 88')";
-    connection.query(sql, function (err, result) {
-      if (err) throw err;
-      console.log("1 record inserted");
-    });
+    connection.query("SELECT * FROM customers WHERE address = 'Highway 88'", function (err, result, fields) {
+        if (err) throw err;
+        console.log(result);
+      });
   });
 };
-
 module.exports = connectoMysql;

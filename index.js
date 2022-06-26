@@ -1,3 +1,5 @@
+const connectoMysql = require("./db");
+connectoMysql();
 const express = require('express');
 const app = express();
 const port = 5000;
